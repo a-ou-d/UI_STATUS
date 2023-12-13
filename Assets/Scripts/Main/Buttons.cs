@@ -38,4 +38,10 @@ public class Buttons : MonoBehaviour
         invenCanvas.SetActive(false);
         mainCanvas.SetActive(true);
     }
+
+    public void ShopToMain()
+    {
+        shopCanvas.SetActive(false);
+        mainCanvas.SetActive(true);
+    }
 }

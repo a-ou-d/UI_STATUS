@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ItemButton : MonoBehaviour
 {
+    public Items mainItem;
+
     public GameObject inven;
     public ScriptableObject item;
     public Equip equipPanel;
@@ -25,5 +27,10 @@ public class ItemButton : MonoBehaviour
             inven.SetActive(false);
             equipPanel.OpenPanel(item);
         }
+    }
+
+    public void ToggleEquip()
+    {
+        isEquipped = !isEquipped;
     }
 }

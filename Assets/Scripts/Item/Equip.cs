@@ -64,19 +64,26 @@ public class Equip : MonoBehaviour
 
     public void EquipItem()
     {
-        isEquipped = !isEquipped;
+        ItemButton itemButton = allItemButtons.Find(button => button.mainItem == currentItem);
 
-        if (isEquipped)
+        if (itemButton != null)
         {
-            characterStatsHandler.StatsModifiers.Add(currentItem);
-        }
-        else
-        {
-            characterStatsHandler.StatsModifiers.Remove(currentItem);
-        }
+            itemButton.isEquipped = !itemButton.isEquipped;
+            isEquipped = itemButton.isEquipped;
 
-        characterStatsHandler.UpdateCharacterStats();
-        ClosePanel();
+            if (isEquipped)
+            {
+                characterStatsHandler.StatsModifiers.Add(currentItem);
+            }
+            else
+            {
+                characterStatsHandler.StatsModifiers.Remove(currentItem);
+            }
+
+            characterStatsHandler.UpdateCharacterStats();
+
+            UpdateItemEquipStatus();
+        }
     }
 
     public void ClosePanel()
