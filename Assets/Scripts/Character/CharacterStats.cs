@@ -13,13 +13,4 @@ public class CharacterStats : ScriptableObject
     public int health;
     public int wizdom;
     public int mental;
-
-    public void AddStats(CharacterStats item)
-    {
-        this.power += item.power;
-        this.speed += item.speed;
-        this.health += item.health;
-        this.wizdom += item.wizdom;
-        this.mental += item.mental;
-    }
 }

@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdbd6e4e7a1ea8f42828480f60fb8cf4, type: 3}
-  m_Name: Azinoth's sword
+  m_Script: {fileID: 11500000, guid: 4591b830eea81684aba78178c4818bf4, type: 3}
+  m_Name: Proud
   m_EditorClassIdentifier: 
-  itemName: "\uC544\uC9C0\uB178\uC2A4\uC758 \uC804\uD22C\uAC80"
-  icon: {fileID: 21300000, guid: 0284057b115e107479f601b0416a1a06, type: 3}
+  itemName: "\uC704\uB300\uD55C \uC218\uB835\uC758 \uBCA8\uD2B8"
+  icon: {fileID: 21300000, guid: 35a50488ca6951e4680de9e672753303, type: 3}
   description: 
-  price: 0
+  price: 800
   quantity: 0
   power: 0
-  speed: 0
-  health: 0
-  wizdom: 0
-  mental: 0
+  speed: 15
+  health: 14
+  wizdom: 6
+  mental: 19

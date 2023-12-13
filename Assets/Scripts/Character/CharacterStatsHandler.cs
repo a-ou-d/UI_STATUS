@@ -8,20 +8,24 @@ public class CharacterStatsHandler : MonoBehaviour
     [SerializeField] private CharacterStats baseStats;
 
     public CharacterStats CurrentStats { get; private set; }
-    public List<CharacterStats> StatsModifiers = new List<CharacterStats>();
+    public List<Items> StatsModifiers = new List<Items>();
 
     private void Awake()
     {
         UpdateCharacterStats();
     }
 
-    private void UpdateCharacterStats()
+    public void UpdateCharacterStats()
     {
         CurrentStats = Instantiate(baseStats);
 
-        foreach (CharacterStats modifier in StatsModifiers)
+        foreach (Items item in StatsModifiers)
         {
-            CurrentStats.AddStats(modifier);
+            CurrentStats.power += item.power;
+            CurrentStats.speed += item.speed;
+            CurrentStats.health += item.health;
+            CurrentStats.wizdom += item.wizdom;
+            CurrentStats.mental += item.mental;
         }
 
         UpdateUI();
