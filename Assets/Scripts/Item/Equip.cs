@@ -14,8 +14,8 @@ public class Equip : MonoBehaviour
     public Button equipButton;
     public Button backButton;
 
+    private static ItemButton currentButton;
     private Items currentItem;
-    private bool isEquipped = false;
 
     public CharacterStatsHandler characterStatsHandler;
 
@@ -27,9 +27,11 @@ public class Equip : MonoBehaviour
         backButton.onClick.AddListener(ClosePanel);
     }
 
-    public void OpenPanel(ScriptableObject itemObject)
+    public void OpenPanel(ScriptableObject itemObject, ItemButton itembutton)
     {
         currentItem = itemObject as Items;
+        currentButton = itembutton;
+
         if (currentItem != null)
         {
             itemNameText.text = currentItem.itemName;
@@ -64,14 +66,11 @@ public class Equip : MonoBehaviour
 
     public void EquipItem()
     {
-        ItemButton itemButton = allItemButtons.Find(button => button.mainItem == currentItem);
+        //ItemButton itemButton = allItemButtons.Find(button => button.mainItem == currentItem);
 
-        if (itemButton != null)
-        {
-            itemButton.isEquipped = !itemButton.isEquipped;
-            isEquipped = itemButton.isEquipped;
+            currentButton.isEquipped = !currentButton.isEquipped;
 
-            if (isEquipped)
+            if (currentButton.isEquipped)
             {
                 characterStatsHandler.StatsModifiers.Add(currentItem);
             }
@@ -83,7 +82,6 @@ public class Equip : MonoBehaviour
             characterStatsHandler.UpdateCharacterStats();
 
             UpdateItemEquipStatus();
-        }
     }
 
     public void ClosePanel()

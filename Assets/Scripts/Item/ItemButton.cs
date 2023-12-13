@@ -12,7 +12,8 @@ public class ItemButton : MonoBehaviour
     public ScriptableObject item;
     public Equip equipPanel;
 
-    public bool isEquipped;
+
+    public bool isEquipped = false;
 
     private void Start()
     {
@@ -25,12 +26,12 @@ public class ItemButton : MonoBehaviour
         if (equipPanel != null)
         {
             inven.SetActive(false);
-            equipPanel.OpenPanel(item);
+            equipPanel.OpenPanel(item, gameObject.GetComponent<ItemButton>());
         }
     }
 
-    public void ToggleEquip()
-    {
-        isEquipped = !isEquipped;
-    }
+    //public void ToggleEquip()
+    //{
+    //    isEquipped = !isEquipped;
+    //}
 }
